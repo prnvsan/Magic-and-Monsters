@@ -1,7 +1,8 @@
 $level = 1
-$expbar = {}
+$exp = 0
 $gold = 0
 $legendarysword = false
+$playerhp = 10
 
 class Scene
   def enter()
@@ -9,6 +10,7 @@ class Scene
     exit(1) 
   end
 end
+
 
 class Engine
 
@@ -32,24 +34,54 @@ end
 
 class Castle < Scene
   def enter()
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/magicandmonsters.txt")
+    sleep 2.5
+    puts "\n"
+    puts "\n"
+    puts "Welcome to Magic and Monsters!"
+    sleep 1.5
     puts "You are an adventurer!"
     puts "\n"
     sleep 1.5
     puts "Skilled in the use of swords and magic,"
     puts "\n"
     sleep 2.5
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/sword.txt")
+    sleep 1.5
+    puts "\n"
+    puts "\n"
     puts "You embark on a journey to find new adventures and wondrous treasures!"
     puts "\n"
-    sleep 3.5
+    sleep 2.5
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/treasure.txt")
+    sleep 1.5
+    puts "\n"
+    puts "\n"
     puts "Presently, your story begins!"
     puts "\n"
-    sleep 1.5
-    puts "A world filled with Monsters and vast riches awaits you..."
-    puts "\n"
     sleep 2.5
+    puts "A world filled with monsters and vast riches await you..."
+    sleep 2.5
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/monster.txt")
+    sleep 1.5
+    puts "\n"
+    puts "\n"
     puts "Press any key to start your journey!"
     print ">"
     start = $stdin.gets.chomp
+    system ('clear')
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/castlename.txt")
+    sleep 1.5
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/castle.txt")
+    sleep 2.5
+    puts "\n"
+    puts "\n"
     puts "You are in a dark, grimy castle"
     puts "\n"
     sleep 1.5
@@ -82,8 +114,11 @@ class Castle < Scene
         puts "\n"
         sleep 1.5
         puts "He doesn't look happy."
-        puts "\n"
         sleep 1.5
+        require("./assets/asciiart.rb")
+        Asciiart.render("./assets/dragonangry.txt")
+        puts "\n"
+        puts "\n"
         puts "ROARRRRRRRR"
         puts "The dragon lets out an enormous flame and burns you to toast."
         puts "\n"
@@ -94,7 +129,13 @@ class Castle < Scene
       else
         puts "Smart move "
         puts "\n"
+        puts "\n"
         puts "You bolt immediately"
+        puts "\n"
+        puts "\n"
+        require("./assets/asciiart.rb")
+        Asciiart.render("./assets/run.txt")
+        puts "\n"
         puts "\n"
         sleep 1.5
         puts "You found a way out of the castle!"
@@ -107,7 +148,12 @@ class Castle < Scene
      puts "\n"
      puts "You Run down the first way you see."
      puts "\n"
-     sleep 1.5
+     puts "\n"
+     require("./assets/asciiart.rb")
+     Asciiart.render("./assets/run.txt")
+     puts "\n"
+     puts "\n"
+     sleep 2.5
      puts "A gigantic Murderous Bloodhound appears out of literally nowhere"
      puts "\n"
       return "Fighthound"
@@ -123,6 +169,10 @@ class Castle < Scene
       puts "\n"
       sleep 1.5
       puts "The dragon ruffles a bit and settles in"
+      require("./assets/asciiart.rb")
+      Asciiart.render("./assets/dragonasleep.txt")
+      sleep 2.5
+      puts "\n"
       puts "\n"
       puts "You're saved!"
       puts "\n"
@@ -133,6 +183,9 @@ class Castle < Scene
    
       if  var4 == "big"
         puts "Greedy, are we?"
+        require("./assets/asciiart.rb")
+        Asciiart.render("./assets/bigchest.txt")
+        puts "\n"
         puts "\n"
         sleep 1.5
         puts "You try your best to escape from the dragon with the treasure chest but it is heavy"
@@ -146,15 +199,19 @@ class Castle < Scene
         sleep 1.5
         puts "But he goes to sleep again"
         puts "\n"
-        return "Cliff"
+        #return "Cliff"
+        return "Finished"
     
       else var4 == "small"
         puts "Noice. You're not greedy :)"
+        require("./assets/asciiart.rb")
+        Asciiart.render("./assets/smallchest.txt")
         puts "\n"
         sleep 1.5
         puts "You can move faster because the chest is small."
         puts "\n"
-        return "Mountain"   
+        #return "Mountain"   
+        return "Finished"
       end
  
     else
@@ -168,6 +225,17 @@ end
     
 class Forest < Scene
   def enter()
+    puts "Press any key to continue"
+    print ">"
+    start = $stdin.gets.chomp
+    system ('clear')
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/forest.txt")
+    sleep 2.5
+    Asciiart.render("./assets/trees.txt")
+    puts "\n"
+    puts "\n"
+    sleep 2.5
     puts "You've somehow escaped the castle, now you find yourself in the enchanted forest, Ellesmere!"
     puts "\n"
     sleep 3.5
@@ -194,10 +262,16 @@ class Forest < Scene
     sleep 1.5
     puts "You are startled! Looks like the door is talking!"
     puts "\n"
+    puts "\n"
     sleep 2.5
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/door.txt")
+    puts "\n"
+    puts "\n"
     puts "Hello traveller, you look like you are battle worn and brave. Give you a chance, I shall to take a treasure with you or send you to your grave..."
     puts "\n"
-    sleep 4.5
+    puts "\n"
+    sleep 5.5
     puts "If you answer my questions, riddles they are. Find the key to the sword of legends, you shall!"
     puts "\n"
     sleep 4.5
@@ -215,7 +289,8 @@ class Forest < Scene
     print ">" 
     var5 = $stdin.gets.chomp
     if var5 == "a soap bubble"
-      puts "Correct."
+      print "°ₒ°ₒ°ₒ"
+      puts "\tCorrect."
       puts "\n"
       sleep 1.5
       puts "Here is my second riddle!"
@@ -227,6 +302,8 @@ class Forest < Scene
       print ">" 
       var6 = $stdin.gets.chomp
       if var6 == "smoke"
+        print "  ,',\n,,',\n',"
+        puts "\t Looks like you're right."
         puts "Congratulations, traveller. I will let you in!"
         puts "\n"
         sleep 2.5
@@ -247,33 +324,62 @@ end
  
 class Cave < Scene
   def enter()
-    puts "You have entered the cave!"
+    puts "Press any key to continue"
+    print ">"
+    start = $stdin.gets.chomp
+    system ('clear')
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/cave.txt")
+    puts "\n"
     puts "\n"
     sleep 1.5
+    puts "You have entered the cave!"
+    sleep 2.5
+    puts "\n"
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/cavebat.txt")
+    puts "\n"
+    puts "\n"
     puts "It is incredibly dark"
     puts "\n"
-    sleep 1.5
+    sleep 3.5
     puts "Suddenly, torches placed on the sides of the wall light up!"
+    #require("./assets/asciiart.rb")
+    #Asciiart.render("./assets/torch.txt")
+    #sleep 2.5
+    #puts "\n"
     puts "\n"
     sleep 2.5
     puts "You see, on a rock placed at the end of the cave, A gleaming mystical sword!"
     puts "\n"
+    sleep 1.5
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/mysticsword.txt")
     sleep 3.5
+    puts "\n"
+    puts "\n"
     puts "It is the sword of legends!. But as you get closer and reach for the sword.."
     puts "\n"
     sleep 3.5
     puts "ROARRRRRRRRRR!!"
-    puts " A Wyvern appaears, flapping its wings! "
+    puts "A Wyvern appears, flapping its wings! "
     puts "\n"
     sleep 2.5
     puts "It was hiding on the roof of the cave!"
-    puts "\n"
+    puts "\n" 
+    puts sleep 2.5
+    $playerhp = 10 #will be removed when potions are added and combat system is more refined
     return "Fightwyvern"
   end
 end  
 
 class Sword < Scene
   def enter()
+    puts "Press any key to continue"
+    print ">"
+    start = $stdin.gets.chomp
+    system ('clear')
+    puts "\n"
     puts "You have successfully defeated the Wyvern!"
     puts "\n"
     sleep 1.5
@@ -284,6 +390,7 @@ class Sword < Scene
     puts "\n"
     sleep 1.5
     puts "AAAAAAARGGHHHH!"
+    puts "\n"
     puts "The sword moves slightly"
     puts "\n"
     sleep 1.5
@@ -294,7 +401,8 @@ class Sword < Scene
     var8 = $stdin.gets.chomp
     print ">" 
     var9 = $stdin.gets.chomp
-    if (var7 == "X" && var8 == "X" && var9 == "X")
+    if (var7 == "x" && var8 == "x" && var9 == "x")
+      puts "\n"
       puts "HYAAAAAAAAAAAAAAAA!!"
       puts "\n"
       sleep 2
@@ -311,14 +419,13 @@ class Sword < Scene
     end
   end
 end   
+
 class Fight < Scene
   def initialize(name)
     @name = name
   end
 
   def enter()
-    puts "You face a wild monster, a #{@name} !! "
-    
     if $level == 1
       playerap = 2
  
@@ -329,67 +436,116 @@ class Fight < Scene
       playerap = 4 
     end    
   
-    monsterap = rand (1..7)
-    monsterhp = rand (5..20)
+    
+    monsterhp = rand (5..15)
   
-    playerhp = 10
+    puts "Press any key to continue"
+    print ">"
+    start = $stdin.gets.chomp
+    system ('clear')
+    puts "You face a wild monster, a #{@name} !! "
+    puts "\n"
+    puts "\n"
+    sleep 1.5
+
+    case  @name
+    when "Murderous Bloodhound"
+      require("./assets/asciiart.rb")
+      Asciiart.render("./assets/bloodhound.txt")
+      monsterap = 1
+
+    when "Legendary Wyvern"
+      require("./assets/asciiart.rb")
+      Asciiart.render("./assets/wyvern.txt")
+      monsterap = 2
+    else
+      print "image.jpg"
+    end
+
+    puts "\n"
+    puts "\n"
+    
     puts "It has a total hp of #{monsterhp}! "
+    puts "\n"
     sleep 2.5
     puts "Your sword is at level #{$level}, gulp! "
+    puts "\n"
     sleep 2.5
     puts "And your hp is 10! "
+    puts "\n"
     sleep 2.5
     puts "Time to brave up, it's fight night. "
+    puts "\n"
+    sleep 2.5
   
-    while playerhp > 0
+    while $playerhp > 0
+      puts "\n"
       puts "Time for an attack, press x to unleash the fury of your sword! "
       print ">" 
       var3 = $stdin.gets.chomp  
     
       if  var3 == "x"
         puts "HYAAA! you gave the #{@name} a good whack with your epic sword! "
+        puts "\n"
+        sleep 1.5
         monsterhp = monsterhp-playerap
        
         if monsterhp <=0
           puts "The #{@name} is dead mwahahah! GG "
+          puts "\n"
+          sleep 1.5
           break
         end
 
-        puts " The #{@name}s hp is now #{monsterhp} "
+        puts "The #{@name}s hp is now #{monsterhp} "
+        puts "\n"
+        sleep 1.5
         puts "Time for the counterattack! The #{@name} gets ready...and PLOW!, deals damage! "
-        playerhp = playerhp - monsterap
+        puts "\n"
+        sleep 1.5
+        $playerhp = $playerhp - monsterap
 
-        if  playerhp <=0
+        if  $playerhp <=0
           puts "Your hp becomes zero!"
+          puts "\n"
+          sleep 2.5
           break
         end
 
-        print "Your hp is now #{playerhp} "  
+        print "Your hp is now #{$playerhp} "  
+        puts "\n"
+        sleep 1.5
    
       else
         puts "You pressed the wrong button! "
+        puts "\n"
+        sleep 1.5
         puts "The #{@name} takes this chance and deals damage! "
-        playerhp = playerhp - monsterap
-        puts "Your hp is now #{playerhp} "
+        puts "\n"
+        $playerhp = $playerhp - monsterap
+        puts "Your hp is now #{$playerhp} "
+        puts "\n"
+        sleep 1.5
       end
     end  
  
-    if monsterhp == 0
+    if monsterhp <= 0
       variable =  rand (1..10)
       $gold = $gold + variable
-      puts "Yuss! You received #{$gold} for defeating the monster!"
+      puts "Yuss! You received #{$gold} gold for defeating the monster!"
+      puts "\n"
       sleep 2.5
 
       $level = $level + 1
       if @name == "Murderous Bloodhound"
-        return "Castle"
+        return "Finished"
       end
       if @name == "Legendary Wyvern"
         return "Sword"
       end
     end
 
-    if playerhp <= 0
+    if $playerhp <= 0
       return "Death" 
     end      
   end
@@ -397,14 +553,20 @@ end
 
 class Death < Scene
   def enter()
+    system ('clear')
     puts "You're dead :( Rip"
+    puts "\n"
+    require("./assets/asciiart.rb")
+    Asciiart.render("./assets/death.txt")
     exit(1)
   end
 end
 
 class Finished < Scene
   def enter()
+    system ('clear')
     puts "It's over"
+    exit(1)
   end
 end
 
