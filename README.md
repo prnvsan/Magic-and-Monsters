@@ -1,2 +1,2 @@
 # Magic-and-Monsters
-A simple text based adventure game made with ruby
+A retro style text based adventure game made with ruby
