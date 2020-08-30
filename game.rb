@@ -1,12 +1,12 @@
 $level = 1
 $exp = 0
 $gold = 0
-$legendarysword = false
 $playerhp = 10
+$playerap =  2
 
 class Scene
   def enter()
-    puts "NIl"
+    puts "Nil"
     exit(1) 
   end
 end
@@ -34,8 +34,10 @@ end
 
 class Castle < Scene
   def enter()
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/magicandmonsters.txt")
+
     sleep 2.5
     puts "\n"
     puts "\n"
@@ -47,16 +49,20 @@ class Castle < Scene
     puts "Skilled in the use of swords and magic,"
     puts "\n"
     sleep 2.5
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/sword.txt")
+
     sleep 1.5
     puts "\n"
     puts "\n"
     puts "You embark on a journey to find new adventures and wondrous treasures!"
     puts "\n"
     sleep 2.5
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/treasure.txt")
+
     sleep 1.5
     puts "\n"
     puts "\n"
@@ -73,9 +79,12 @@ class Castle < Scene
     puts "Press any key to start your journey!"
     print ">"
     start = $stdin.gets.chomp
+
     system ('clear')
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/castlename.txt")
+
     sleep 1.5
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/castle.txt")
@@ -88,7 +97,7 @@ class Castle < Scene
     puts "Torches illuminate the dark hallways"
     puts "\n"
     sleep 1.5
-    puts "A gigantic firebreathing dragon lies in deep slumber atop a gleaming pile of gold and other magnificient treasures "
+    puts "A humongous firebreathing dragon lies in deep slumber atop a gleaming pile of gold and other magnificient treasures "
     puts "\n"
     sleep 3.5
     puts "You're hard pressed for some cash. The gold looks enticing, what do you do?"
@@ -106,24 +115,27 @@ class Castle < Scene
       print ">"         
       var2 = $stdin.gets.chomp
       if  var2 == "yes"
-        puts "/n"
+        puts "\n"
         puts "You bravely move towards the dragon"
         puts "\n"
         sleep 1.5
-        puts "Suddenly it opens it's eyes and is rudely woken out of it's deep sleep"
+        puts "Suddenly it opens its eyes and is rudely woken out of its deep sleep"
         puts "\n"
         sleep 1.5
         puts "He doesn't look happy."
         sleep 1.5
+
         require("./assets/asciiart.rb")
         Asciiart.render("./assets/dragonangry.txt")
+
         puts "\n"
         puts "\n"
         puts "ROARRRRRRRR"
         puts "The dragon lets out an enormous flame and burns you to toast."
         puts "\n"
-        sleep 1
+        sleep 2.5
         puts "Tough luck."
+        sleep 2.5
       return "Death"
    
       else
@@ -133,8 +145,10 @@ class Castle < Scene
         puts "You bolt immediately"
         puts "\n"
         puts "\n"
+
         require("./assets/asciiart.rb")
         Asciiart.render("./assets/run.txt")
+
         puts "\n"
         puts "\n"
         sleep 1.5
@@ -146,11 +160,13 @@ class Castle < Scene
     elsif var1 == "run"
      puts "Whew, okay." 
      puts "\n"
-     puts "You Run down the first way you see."
+     puts "You Run down the first path you see."
      puts "\n"
      puts "\n"
+
      require("./assets/asciiart.rb")
      Asciiart.render("./assets/run.txt")
+
      puts "\n"
      puts "\n"
      sleep 2.5
@@ -159,6 +175,9 @@ class Castle < Scene
       return "Fighthound"
      
     elsif var1 == "stealth"
+      puts "You tip-toe towards the dragon"
+      sleep 1.5
+      puts "\n"
       puts "You pull out a magical flute that you inherited from your grandad"
       puts "\n"
       sleep 1.5
@@ -169,8 +188,10 @@ class Castle < Scene
       puts "\n"
       sleep 1.5
       puts "The dragon ruffles a bit and settles in"
+
       require("./assets/asciiart.rb")
       Asciiart.render("./assets/dragonasleep.txt")
+
       sleep 2.5
       puts "\n"
       puts "\n"
@@ -183,8 +204,10 @@ class Castle < Scene
    
       if  var4 == "big"
         puts "Greedy, are we?"
+
         require("./assets/asciiart.rb")
         Asciiart.render("./assets/bigchest.txt")
+
         puts "\n"
         puts "\n"
         sleep 1.5
@@ -199,17 +222,21 @@ class Castle < Scene
         sleep 1.5
         puts "But he goes to sleep again"
         puts "\n"
+        sleep 2.5
         #return "Cliff"
         return "Finished"
     
       else var4 == "small"
         puts "Noice. You're not greedy :)"
+
         require("./assets/asciiart.rb")
         Asciiart.render("./assets/smallchest.txt")
+
         puts "\n"
         sleep 1.5
         puts "You can move faster because the chest is small."
         puts "\n"
+        sleep 2.5
         #return "Mountain"   
         return "Finished"
       end
@@ -229,10 +256,14 @@ class Forest < Scene
     print ">"
     start = $stdin.gets.chomp
     system ('clear')
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/forest.txt")
+
     sleep 2.5
+
     Asciiart.render("./assets/trees.txt")
+
     puts "\n"
     puts "\n"
     sleep 2.5
@@ -264,8 +295,10 @@ class Forest < Scene
     puts "\n"
     puts "\n"
     sleep 2.5
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/door.txt")
+
     puts "\n"
     puts "\n"
     puts "Hello traveller, you look like you are battle worn and brave. Give you a chance, I shall to take a treasure with you or send you to your grave..."
@@ -275,7 +308,7 @@ class Forest < Scene
     puts "If you answer my questions, riddles they are. Find the key to the sword of legends, you shall!"
     puts "\n"
     sleep 4.5
-    puts "You decide to answer the riddle"
+    puts "You decide to answer the riddle so that the door will open"
     puts "\n"
     sleep 2.5 
     puts "The door starts talking again.."
@@ -302,8 +335,9 @@ class Forest < Scene
       print ">" 
       var6 = $stdin.gets.chomp
       if var6 == "smoke"
-        print "  ,',\n,,',\n',"
-        puts "\t Looks like you're right."
+        puts "\n"
+        puts ",',\n , \n', "          
+        print "Looks like you're right."
         puts "Congratulations, traveller. I will let you in!"
         puts "\n"
         sleep 2.5
@@ -326,18 +360,24 @@ class Cave < Scene
   def enter()
     puts "Press any key to continue"
     print ">"
+
     start = $stdin.gets.chomp
+
     system ('clear')
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/cave.txt")
+
     puts "\n"
     puts "\n"
     sleep 1.5
     puts "You have entered the cave!"
     sleep 2.5
     puts "\n"
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/cavebat.txt")
+
     puts "\n"
     puts "\n"
     puts "It is incredibly dark"
@@ -353,8 +393,10 @@ class Cave < Scene
     puts "You see, on a rock placed at the end of the cave, A gleaming mystical sword!"
     puts "\n"
     sleep 1.5
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/mysticsword.txt")
+
     sleep 3.5
     puts "\n"
     puts "\n"
@@ -377,7 +419,9 @@ class Sword < Scene
   def enter()
     puts "Press any key to continue"
     print ">"
+
     start = $stdin.gets.chomp
+
     system ('clear')
     puts "\n"
     puts "You have successfully defeated the Wyvern!"
@@ -410,10 +454,11 @@ class Sword < Scene
       puts "\n"
       sleep 1.5
       puts "You received the Legendary sword!"
-      $legendarysword = true
+      $playerap = $playerap + 1
+      sleep 2.5  
       return "Finished"
     else
-      print "Now,what did I tell you?"
+      print "Now, what did I tell you?. Press the right key!"
       puts "\n"
       return "Sword"
     end
@@ -427,13 +472,13 @@ class Fight < Scene
 
   def enter()
     if $level == 1
-      playerap = 2
+      $playerap = 2
  
     elsif $level == 2
-      playerap = 3
+      $playerap = 3
  
     else 
-      playerap = 4 
+      $playerap = 4 
     end    
   
     
@@ -488,7 +533,7 @@ class Fight < Scene
         puts "HYAAA! you gave the #{@name} a good whack with your epic sword! "
         puts "\n"
         sleep 1.5
-        monsterhp = monsterhp-playerap
+        monsterhp = monsterhp-$playerap
        
         if monsterhp <=0
           puts "The #{@name} is dead mwahahah! GG "
@@ -556,8 +601,10 @@ class Death < Scene
     system ('clear')
     puts "You're dead :( Rip"
     puts "\n"
+
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/death.txt")
+    
     exit(1)
   end
 end
@@ -565,7 +612,7 @@ end
 class Finished < Scene
   def enter()
     system ('clear')
-    puts "It's over"
+    puts "More coming soon!"
     exit(1)
   end
 end
