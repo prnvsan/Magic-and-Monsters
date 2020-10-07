@@ -76,6 +76,9 @@ class Castle < Scene
     sleep 1.5
     puts "\n"
     puts "\n"
+    puts "Note: Use keywords like big, small, walk, run for inputs :)"
+    puts "\n"
+    puts "\n"
     puts "Press any key to start your journey!"
     print ">"
     start = $stdin.gets.chomp
@@ -107,7 +110,7 @@ class Castle < Scene
     print ">" 
     var1 = $stdin.gets.chomp 
  
-    if var1 == "walk" || 1
+    if ["walk","1","Walk","1.","towards"].include? var1
       puts "You unsheathe your sword made out of mithril, should be able to cut through people like butter. \n"
       puts "\n"
       sleep 3
@@ -157,7 +160,7 @@ class Castle < Scene
         return "Forest"   
       end
 
-    elsif var1 == "run"|| 2
+    elsif ["run","2","run while you still can","2."].include? var1
      puts "Whew, okay." 
      puts "\n"
      puts "You Run down the first path you see."
@@ -174,7 +177,7 @@ class Castle < Scene
      puts "\n"
       return "Fighthound"
      
-    elsif var1 == "stealth"|| 3
+    elsif ["stealth","3","3.","Try out a stealthy approach"].include? var1
       puts "You tip-toe towards the dragon"
       sleep 1.5
       puts "\n"
@@ -601,10 +604,14 @@ class Death < Scene
     system ('clear')
     puts "You're dead :( Rip"
     puts "\n"
-
     require("./assets/asciiart.rb")
     Asciiart.render("./assets/death.txt")
-    
+    sleep 1.5
+    puts "\n"
+    puts "\n"
+    puts "There are many countless endings to your tale, Brave Hero! Try again to see what story unfolds!" 
+    puts "\n"
+    puts "\n"
     exit(1)
   end
 end
