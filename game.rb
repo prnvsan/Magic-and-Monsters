@@ -107,7 +107,7 @@ class Castle < Scene
     print ">" 
     var1 = $stdin.gets.chomp 
  
-    if var1 == "walk"
+    if var1 == "walk" || 1
       puts "You unsheathe your sword made out of mithril, should be able to cut through people like butter. \n"
       puts "\n"
       sleep 3
@@ -157,7 +157,7 @@ class Castle < Scene
         return "Forest"   
       end
 
-    elsif var1 == "run"
+    elsif var1 == "run"|| 2
      puts "Whew, okay." 
      puts "\n"
      puts "You Run down the first path you see."
@@ -174,7 +174,7 @@ class Castle < Scene
      puts "\n"
       return "Fighthound"
      
-    elsif var1 == "stealth"
+    elsif var1 == "stealth"|| 3
       puts "You tip-toe towards the dragon"
       sleep 1.5
       puts "\n"
