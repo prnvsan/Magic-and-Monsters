@@ -106,18 +106,18 @@ class Castle < Scene
     puts "You're hard pressed for some cash. The gold looks enticing, what do you do?"
     puts "\n"
     sleep 1.5
-    puts "1. Walk straight towards the monstrous thing  2.Run while you still can >.<   3.Try out a stealthy approach"
+    puts "1.Walk straight towards the monstrous thing  2.Run while you still can >.<   3.Try out a stealthy approach"
     print ">" 
     var1 = $stdin.gets.chomp 
  
-    if ["walk","1","Walk","1.","towards"].include? var1
+    if ["walk","1","Walk","1.","towards","Walk straight towards the monstrous thing","1.Walk straight towards the monstrous thing"].include? var1
       puts "You unsheathe your sword made out of mithril, should be able to cut through people like butter. \n"
       puts "\n"
       sleep 3
       puts " The dragon stirs. Uh-oh Still think this is a good idea? :/ "
       print ">"         
       var2 = $stdin.gets.chomp
-      if  var2 == "yes"
+      if ["yes","yes this is a good idea","Yes","good idea","Yes this is a good idea"].include? var2
         puts "\n"
         puts "You bravely move towards the dragon"
         puts "\n"
@@ -160,7 +160,7 @@ class Castle < Scene
         return "Forest"   
       end
 
-    elsif ["run","2","run while you still can","2."].include? var1
+    elsif ["run","Run","2","2.Run while you still can","Run while you still can"].include? var1
      puts "Whew, okay." 
      puts "\n"
      puts "You Run down the first path you see."
@@ -177,7 +177,7 @@ class Castle < Scene
      puts "\n"
       return "Fighthound"
      
-    elsif ["stealth","3","3.","Try out a stealthy approach"].include? var1
+    elsif ["stealth","Stealth","3","3.","Try out a stealthy approach","3.Try out a stealthy approach"].include? var1
       puts "You tip-toe towards the dragon"
       sleep 1.5
       puts "\n"
@@ -205,7 +205,7 @@ class Castle < Scene
       print ">" 
       var4 = $stdin.gets.chomp
    
-      if  var4 == "big"
+      if ["Big","big","big treasure chest","Big treasure chest"].include? var4
         puts "Greedy, are we?"
 
         require("./assets/asciiart.rb")
@@ -229,7 +229,7 @@ class Castle < Scene
         #return "Cliff"
         return "Finished"
     
-      else var4 == "small"
+      elsif ["Small","small","small treasure chest","Small treasure chest","The small one","small one","small treasure chest"].include? var4
         puts "Noice. You're not greedy :)"
 
         require("./assets/asciiart.rb")
@@ -324,7 +324,7 @@ class Forest < Scene
     puts "What am I?"
     print ">" 
     var5 = $stdin.gets.chomp
-    if var5 == "a soap bubble"
+    if ["A soap bubble", "a soap bubble","soap bubble","Soap bubble","soap"].include? var5
       print "°ₒ°ₒ°ₒ"
       puts "\tCorrect."
       puts "\n"
@@ -337,7 +337,7 @@ class Forest < Scene
       puts "and at once on my birth I am dissolved into air. What am I?"
       print ">" 
       var6 = $stdin.gets.chomp
-      if var6 == "smoke"
+      if ["Smoke","smoke"].include? var6
         puts "\n"
         puts ",',\n , \n', "          
         print "Looks like you're right."
@@ -586,7 +586,7 @@ class Fight < Scene
 
       $level = $level + 1
       if @name == "Murderous Bloodhound"
-        return "Finished"
+        return "Forest"
       end
       if @name == "Legendary Wyvern"
         return "Sword"
